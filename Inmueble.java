@@ -71,12 +71,26 @@ public abstract class Inmueble
     
     public void reservar(int diaInicio, int diaFin, int numeroPersonas, int dni)
     {
-        int precio = precioAlquilerPorNoche() * (diaFin - diaInicio);
-        alquileres.add(new Alquiler(diaInicio, diaFin, numeroPersonas, dni, precio));
+        int precioTotal = precioAlquilerPorNoche() * (diaFin - diaInicio);
+        alquileres.add(new Alquiler(id, diaInicio, diaFin, numeroPersonas, dni, precioTotal));
     }
     
     public int precioAlquilerPorNoche() 
     {
         return numeroMaximoPersonas * PRECIO_FIJO / distanciaAlCentro;
+    }
+    
+    public int getNumeroAlquileres()
+    {
+        return alquileres.size();
+    }
+    
+    public String getListadoAlquileres() 
+    {
+        String textoADevolver = "";
+        for (Alquiler alquiler : alquileres) {
+            textoADevolver += alquiler + "\n";
+        }
+        return textoADevolver;
     }
 }
