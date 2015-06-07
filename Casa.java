@@ -25,5 +25,21 @@ public class Casa extends Inmueble
     {
         return super.toString() + " Jardin: " + aTexto(tieneJardin) + " ZonaTranquila: " + aTexto(enZonaTranquila);
     }
-      
+
+    
+    public int precioAlquilerPorNoche() 
+    {
+        int precioNoche = super.precioAlquilerPorNoche();
+        
+        if (tieneJardin || enZonaTranquila) {
+            precioNoche = precioNoche * 2;
+        }
+        
+        return precioNoche;
+    }
+    
+    public boolean estaEnZonaTranquila()
+    {
+        return enZonaTranquila;
+    }
 }

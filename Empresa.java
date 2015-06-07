@@ -85,6 +85,30 @@ public class Empresa
         }
         System.out.println();
     }
+    
+    public void reservar(int idInmueble, int diaInicio, int diaFin, int numeroPersonas, int dni)
+    {
+        boolean buscando = true;
+        int contador = 0;
+        Inmueble inmuebleBuscado = null;
+        
+        while (buscando && contador < inmuebles.size()) {
+            if (inmuebles.get(contador).getId() == idInmueble) {
+                inmuebleBuscado = inmuebles.get(contador);
+                if (inmuebleBuscado.estaDisponible(diaInicio, diaFin, numeroPersonas)) {
+                    inmuebleBuscado.reservar(diaInicio, diaFin, numeroPersonas, dni);
+                }
+                else {
+                    System.out.println("El inmueble no está disponible");
+                }                
+                buscando = false;
+            }
+            contador++;
+        }
+        
+
+        
+    }
 
     
 }

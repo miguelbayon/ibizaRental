@@ -9,6 +9,8 @@ import java.util.ArrayList;
  */
 public abstract class Inmueble
 {
+    private static final int PRECIO_FIJO = 100;
+    
     private static int idActual = 1;
     private int id;
     private int distanciaAlCentro;
@@ -60,5 +62,21 @@ public abstract class Inmueble
         }
         
         return valorDevuelto;
+    }
+    
+    public int getId()
+    {
+        return id;
+    }
+    
+    public void reservar(int diaInicio, int diaFin, int numeroPersonas, int dni)
+    {
+        int precio = precioAlquilerPorNoche() * (diaFin - diaInicio);
+        alquileres.add(new Alquiler(diaInicio, diaFin, numeroPersonas, dni, precio));
+    }
+    
+    public int precioAlquilerPorNoche() 
+    {
+        return numeroMaximoPersonas * PRECIO_FIJO / distanciaAlCentro;
     }
 }

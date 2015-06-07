@@ -7,6 +7,8 @@
  */
 public class CasaDeLujo extends Casa
 {
+    private static final int PRECIO_ALQUILER_FIJO = 100;
+    
     private int numeroPiscinas;
     private int numeroHabitaciones;
 
@@ -40,5 +42,14 @@ public class CasaDeLujo extends Casa
         
         
         return valorDevuelto;
+    }    
+    
+    public int precioAlquilerPorNoche() 
+    {
+        int factorZonaTranquila = 1;
+        if (estaEnZonaTranquila()) {
+            factorZonaTranquila = 2;
+        }
+        return super.precioAlquilerPorNoche() + (numeroPiscinas * numeroHabitaciones * PRECIO_ALQUILER_FIJO * factorZonaTranquila);
     }    
 }

@@ -38,5 +38,16 @@ public class Piso extends Inmueble
         
         return valorDevuelto;
     }
+    
+    public int precioAlquilerPorNoche() 
+    {
+        int precioNoche = super.precioAlquilerPorNoche();
+        
+        if (tieneTerraza || tieneAscensor) {
+            precioNoche = precioNoche * 2;
+        }
+        
+        return precioNoche;
+    }
 
 }
