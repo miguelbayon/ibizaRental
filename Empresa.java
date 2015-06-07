@@ -80,7 +80,7 @@ public class Empresa
         System.out.println("Inmuebles disponibles:");        
         for(Inmueble inmueble : inmuebles) {
             if (inmueble.estaDisponible(diaInicio, diaFin, numeroPersonas)) {
-                System.out.println(inmueble);
+                System.out.println(inmueble + " Alquiler/noche: " + inmueble.precioAlquilerPorNoche() + " Alquiler total: " + inmueble.precioAlquilerPorNoche() * (diaFin - diaInicio));
             }
         }
         System.out.println();
