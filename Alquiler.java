@@ -16,9 +16,23 @@ public class Alquiler
     /**
      * Constructor for objects of class Alquiler
      */
-    public Alquiler()
+    public Alquiler(int idInmueble, int diaInicio, int diaFin, int dni, double precio)
     {
-
+        this.idInmueble = idInmueble;
+        this.diaInicio = diaInicio;
+        this.diaFin = diaFin;
+        this.dni = dni;
+        this.precio = precio;
+    }
+    
+    public int getDiaInicio()
+    {
+        return diaInicio;
+    }
+    
+    public int getDiaFin()
+    {
+        return diaFin;
     }
 
 

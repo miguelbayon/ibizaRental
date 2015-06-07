@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Inmueble
+public abstract class Inmueble
 {
     private static int idActual = 1;
     private int id;
@@ -30,7 +30,7 @@ public class Inmueble
  
     public String toString()
     {
-        return "ID: " + String.format("%2d", id) + " Distancia: " + String.format("%2d", id) + " km. MaxPers: " + String.format("%2d", id);
+        return "ID: " + String.format("%2d", id) + " Distancia: " + String.format("%2d", distanciaAlCentro) + " km. MaxPers: " + String.format("%2d", numeroMaximoPersonas);
     }
     
     protected String aTexto(boolean valor)
@@ -39,5 +39,26 @@ public class Inmueble
         if (valor)
             valorADevolver = "si";
         return valorADevolver;
+    }
+    
+    public boolean estaDisponible(int diaInicio, int diaFin, int numeroPersonas) 
+    {
+        boolean valorDevuelto = true;
+        
+        if (numeroPersonas > numeroMaximoPersonas) {
+            valorDevuelto = false;
+        }
+        else {
+            for(Alquiler alquiler : alquileres) {
+                if((alquiler.getDiaInicio() < diaFin) && (alquiler.getDiaInicio() >= diaInicio)) {
+                    valorDevuelto = false;
+                }
+                if((alquiler.getDiaFin() > diaInicio) && (alquiler.getDiaFin() <= diaFin)) {
+                    valorDevuelto = false;
+                }
+            }
+        }
+        
+        return valorDevuelto;
     }
 }

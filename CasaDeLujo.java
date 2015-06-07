@@ -26,4 +26,19 @@ public class CasaDeLujo extends Casa
     {
         return super.toString() + " NºPisc: " + numeroPiscinas + " NºHab: " + numeroHabitaciones;
     }
+    
+    public boolean estaDisponible(int diaInicio, int diaFin, int numeroPersonas)
+    {
+        boolean valorDevuelto = super.estaDisponible(diaInicio, diaFin, numeroPersonas);
+        
+        if ((diaInicio <= 10) && (diaFin >= 11) ||
+            (diaInicio <= 20) && (diaFin >= 21) ||
+            (diaInicio <= 25) && (diaFin >= 25)) {
+        
+                valorDevuelto = false;
+        }
+        
+        
+        return valorDevuelto;
+    }    
 }

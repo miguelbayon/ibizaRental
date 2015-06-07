@@ -25,4 +25,5 @@ public class Casa extends Inmueble
     {
         return super.toString() + " Jardin: " + aTexto(tieneJardin) + " ZonaTranquila: " + aTexto(enZonaTranquila);
     }
+      
 }

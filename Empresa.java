@@ -68,8 +68,23 @@ public class Empresa
     
     public void mostrarListadoInmuebles()
     {
-        for(Inmueble inmueble : inmuebles)
+        System.out.println("Inmuebles disponibles:");
+        for(Inmueble inmueble : inmuebles) {
             System.out.println(inmueble);
+        }
+        System.out.println();
+    }
+    
+    public void consultarDisponibilidad(int diaInicio, int diaFin, int numeroPersonas)
+    {
+        System.out.println("Inmuebles disponibles:");        
+        for(Inmueble inmueble : inmuebles) {
+            if (inmueble.estaDisponible(diaInicio, diaFin, numeroPersonas)) {
+                System.out.println(inmueble);
+            }
+        }
+        System.out.println();
     }
 
+    
 }

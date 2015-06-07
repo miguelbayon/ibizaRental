@@ -7,6 +7,8 @@
  */
 public class Piso extends Inmueble
 {
+    private static final int MAXIMO_DIAS_ALQUILER = 7;
+    
     private boolean tieneTerraza;
     private boolean tieneAscensor;
 
@@ -24,6 +26,17 @@ public class Piso extends Inmueble
     public String toString()
     {
         return super.toString() + " Terraza: " + aTexto(tieneTerraza) + " Ascensor: " + aTexto(tieneAscensor);
+    }
+    
+    public boolean estaDisponible(int diaInicio, int diaFin, int numeroPersonas)
+    {
+        boolean valorDevuelto = super.estaDisponible(diaInicio, diaFin, numeroPersonas);
+        
+        if (diaFin - diaInicio > MAXIMO_DIAS_ALQUILER) {
+            valorDevuelto = false;
+        }
+        
+        return valorDevuelto;
     }
 
 }
