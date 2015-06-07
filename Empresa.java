@@ -136,7 +136,31 @@ public class Empresa
  
     }
 
-    
+    public void mostrarListadoOrdenadoIngresos()
+    {
+        ArrayList<Inmueble> inmueblesOrdenados = new ArrayList<>();
+        ArrayList<Inmueble> inmueblesCopia = (ArrayList<Inmueble>)inmuebles.clone(); 
+        
+        for (int i = 0; i < inmuebles.size(); i++) {
+            
+            Inmueble inmuebleMasIngresos = inmueblesCopia.get(0);
+            for (Inmueble inmueble : inmueblesCopia) {
+                if (inmueble.getTotalIngresos() > inmuebleMasIngresos.getTotalIngresos()) {
+                    inmuebleMasIngresos = inmueble;
+                }
+            }
+            inmueblesOrdenados.add(inmuebleMasIngresos);
+            inmueblesCopia.remove(inmuebleMasIngresos);
+            
+            
+        }
+        
+        for (Inmueble inmueble : inmueblesOrdenados) {
+            System.out.println(inmueble);
+            System.out.println(inmueble.getListadoAlquileres());
+        }
+ 
+    }    
 }
 
 

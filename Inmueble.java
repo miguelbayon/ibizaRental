@@ -93,4 +93,13 @@ public abstract class Inmueble
         }
         return textoADevolver;
     }
+    
+    public int getTotalIngresos()
+    {
+        int totalIngresos = 0;
+        for (Alquiler alquiler : alquileres) {
+            totalIngresos += alquiler.getPrecioTotal();
+        }
+        return totalIngresos;
+    }
 }

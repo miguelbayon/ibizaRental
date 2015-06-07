@@ -48,5 +48,8 @@ public class Alquiler
         return "- ID: " + id + " Inicio: " + String.format("%2d", diaInicio) + " Fin: " + String.format("%2d", diaFin) + " Precio total: " + precio;
     }
 
-
+    public int getPrecioTotal() 
+    {
+        return precio;
+    }
 }
