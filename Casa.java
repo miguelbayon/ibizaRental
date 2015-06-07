@@ -21,4 +21,8 @@ public class Casa extends Inmueble
         this.enZonaTranquila = enZonaTranquila;
     }
 
+    public String toString()
+    {
+        return super.toString() + " Jardin: " + aTexto(tieneJardin) + " ZonaTranquila: " + aTexto(enZonaTranquila);
+    }
 }

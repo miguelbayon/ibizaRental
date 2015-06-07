@@ -22,5 +22,8 @@ public class CasaDeLujo extends Casa
         this.numeroHabitaciones = numeroHabitaciones;
     }
 
-
+    public String toString()
+    {
+        return super.toString() + " NºPisc: " + numeroPiscinas + " NºHab: " + numeroHabitaciones;
+    }
 }

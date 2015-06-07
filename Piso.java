@@ -20,5 +20,10 @@ public class Piso extends Inmueble
         this.tieneTerraza = tieneTerraza;
         this.tieneAscensor = tieneAscensor;
     }
+    
+    public String toString()
+    {
+        return super.toString() + " Terraza: " + aTexto(tieneTerraza) + " Ascensor: " + aTexto(tieneAscensor);
+    }
 
 }

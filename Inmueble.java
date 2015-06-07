@@ -28,4 +28,16 @@ public class Inmueble
     }
 
  
+    public String toString()
+    {
+        return "ID: " + String.format("%2d", id) + " Distancia: " + String.format("%2d", id) + " km. MaxPers: " + String.format("%2d", id);
+    }
+    
+    protected String aTexto(boolean valor)
+    {
+        String valorADevolver = "no";
+        if (valor)
+            valorADevolver = "si";
+        return valorADevolver;
+    }
 }

@@ -66,6 +66,10 @@ public class Empresa
         }        
     }
     
-
+    public void mostrarListadoInmuebles()
+    {
+        for(Inmueble inmueble : inmuebles)
+            System.out.println(inmueble);
+    }
 
 }
